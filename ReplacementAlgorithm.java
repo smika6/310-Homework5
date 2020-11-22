@@ -52,7 +52,7 @@ public abstract class ReplacementAlgorithm{
      * 
      * @return the number of page faults
      */
-    public abstract int run();
+    public abstract int computeFaults();
 
 
 }

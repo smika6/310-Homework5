@@ -12,9 +12,7 @@ public class FIFO extends ReplacementAlgorithm {
      * update the index of the last replaced page number
      */
     @Override
-    public int run() {
-        // 0 - 9 inputs, and so 10 total differnt page numbers, and the fault count is
-        // reporting 10 no matter what
+    public int computeFaults() {
 
         int indexOfLastReplaced = 0;
 

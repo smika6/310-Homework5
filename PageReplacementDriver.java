@@ -30,6 +30,20 @@ public class PageReplacementDriver {
         
         ArrayList<Integer> pageReferenceString = PageGenerator.getPageReferenceString(referenceStringLength);
 
+        //Practice
+
+        print("Test Case FIFO");
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(1);
+        arr.add(3);
+        arr.add(0);
+        arr.add(3);
+        arr.add(5);
+        arr.add(6);
+        FIFO f = new FIFO(arr,3);
+        print("\n");
+        print("Faults: " + f.computeFaults());
+
         // Run the tests
 
         ReplacementAlgorithm pageReplacementAlgorithm;
@@ -44,7 +58,7 @@ public class PageReplacementDriver {
             print("Running FIFO and Optimal with a frame size of " + pageFrameSize + ".");
 
             pageReplacementAlgorithm = new FIFO(pageReferenceString, pageFrameSize);
-            faultCount = pageReplacementAlgorithm.run();
+            faultCount = pageReplacementAlgorithm.computeFaults();
 
             print("\n");
             print(fifoPageAlgoString);
@@ -52,7 +66,7 @@ public class PageReplacementDriver {
             print("\n");
 
             pageReplacementAlgorithm = new Optimal(pageReferenceString, pageFrameSize);
-            faultCount = pageReplacementAlgorithm.run();
+            faultCount = pageReplacementAlgorithm.computeFaults();
 
             print(optimalPageAlgoString);
             print(faultCount);

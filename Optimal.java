@@ -9,7 +9,7 @@ public class Optimal extends ReplacementAlgorithm {
     }
 
     @Override
-    public int run() {
+    public int computeFaults() {
 
         return 0;
     }
