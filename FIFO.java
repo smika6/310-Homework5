@@ -14,6 +14,7 @@ public class FIFO extends ReplacementAlgorithm {
      */
     @Override
     public int run() {  
+        // 0 - 9 inputs, and so 10 total differnt page numbers, and the fault count is reporting 10 no matter what
 
         int indexOfLastReplaced = 0;
 
@@ -45,8 +46,8 @@ public class FIFO extends ReplacementAlgorithm {
 }
 
 /*
-
-    public void run(int pageNumber) {
+TO BE WORKED ON. KWINTON
+    public void run() {
         int referenceStringSize = referenceString.length;
         int pageReferenceindex = 0;
         int positionInReferenceString = 0;

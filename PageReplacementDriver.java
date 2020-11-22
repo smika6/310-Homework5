@@ -4,7 +4,7 @@ public class PageReplacementDriver {
 
     public static void main(String[] args) {
 
-        int[] pageFrameSizesForTesting = {1,2,3,4,5,6,7,8,9};
+        int[] pageFrameSizesForTesting = {1,2,3,4,5,6,7,8};
 
         print("\nPage Frame Sizes to be Tested: \n");
         for(int pageFrameSize : pageFrameSizesForTesting ){
@@ -30,23 +30,12 @@ public class PageReplacementDriver {
         
         ArrayList<Integer> pageReferenceString = PageGenerator.getPageReferenceString(referenceStringLength);
 
-        print("\nPage Reference String: \n");
-        for(int pageNumber : pageReferenceString ){
-            print(pageNumber);
-            print(" ");
-        }
-
         // Run the tests
 
         ReplacementAlgorithm pageReplacementAlgorithm;
 
-        String fifoPageAlgoString = "FIFO Page Replacement w/ Frame Size: ";
-        String fifoPageFaultsString = "";
-
-        String optimalPageAlgoString = "Optimal Page Replacement w/ Frame Size: ";
-        String optimalPageFaultsString = "";
-
-        String faultCountString = "Fault Count: %s";
+        String fifoPageAlgoString = "Fault Count w/ FIFO Page Replacement: ";
+        String optimalPageAlgoString = "Fault Count w/ Optimal Page Replacement: ";
 
         int faultCount = -1;
 
@@ -57,20 +46,18 @@ public class PageReplacementDriver {
             pageReplacementAlgorithm = new FIFO(pageReferenceString, pageFrameSize);
             faultCount = pageReplacementAlgorithm.run();
 
-            print(fifoPageAlgoString + pageFrameSize);
-            fifoPageFaultsString = String.format(faultCountString, faultCount);
-            print(fifoPageFaultsString);
+            print("\n");
+            print(fifoPageAlgoString);
+            print(faultCount);
             print("\n");
 
             pageReplacementAlgorithm = new Optimal(pageReferenceString, pageFrameSize);
             faultCount = pageReplacementAlgorithm.run();
 
-            print(optimalPageAlgoString + pageFrameSize);
-            optimalPageFaultsString = String.format(faultCountString, faultCount);
-            print(optimalPageFaultsString);
-            print("\n");
-
+            print(optimalPageAlgoString);
+            print(faultCount);
             print("\n\n");
+
         }
         print("\n\n");
 
@@ -83,3 +70,30 @@ public class PageReplacementDriver {
     }
 
 }
+
+/*
+public void insert(int pageNumber) {
+        int referenceStringSize = referenceString.length;
+        int pageReferenceindex = 0;
+        int positionInReferenceString = 0;
+        int referenceStringIndex = 0;
+        int index = 0;
+        while(positionInReferenceString < referenceStringSize){
+            boolean insertFlag = searchForPage(pageNumber); 
+            if(!insertFlag || Frame.length < pageFrameCount ){
+                int indexToReplaceAt = index % pageFrameCount + 1; 
+                Frame[indexToReplaceAt] = referenceString[referenceStringIndex];
+                faultCount++;
+                referenceStringIndex++;
+                break;
+            }
+            else{
+                index--;
+                referenceStringIndex++;
+                break;
+            }
+            index++;
+            positionInReferenceString++;
+        }
+}
+*/
