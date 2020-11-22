@@ -1,29 +1,22 @@
-public class Optimal extends ReplacementAlgorithm{
-    int[] Frame;
-    int faultCount;
+import java.util.ArrayList;
 
-    protected Optimal(int pageFrameCount) {
-        super(pageFrameCount);
+public class Optimal extends ReplacementAlgorithm {
+
+    protected Optimal(ArrayList<Integer> pageReferenceString, int pageFrameCount) {
+        super(pageReferenceString, pageFrameCount);
+        
+        frame = new ArrayList<>(pageFrameCount);
     }
-
-    public boolean searchForPage(int pageNumber){
-        boolean pageFound = false;
-
-        for(int i = 0; i < Frame.length; i++ ){
-            if(pageNumber == Frame[i]){
-                pageFound = true;
-                break;
-            }
-        }
     
-        return pageFound;
-
-    }
-
     @Override
     public void insert(int pageNumber) {
     
-    
+    }
+
+    @Override
+    public int run() {
+
+        return 0;
     }
     
 }

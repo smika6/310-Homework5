@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Abstract
  * 
@@ -8,6 +10,12 @@
  * @since 1.0
  */
 public abstract class ReplacementAlgorithm{
+
+    /** The reference string of page numbers */
+    protected ArrayList<Integer> pageReferenceString;
+
+    /** The frame of pages. */
+    ArrayList<Integer> frame;
 
     /** The number of page faults. */
     protected int pageFaultCount;
@@ -20,12 +28,14 @@ public abstract class ReplacementAlgorithm{
      * 
      * @param pageFrameCount - the number of physical page frames
      */
-    protected ReplacementAlgorithm(int pageFrameCount){
+    protected ReplacementAlgorithm(ArrayList<Integer> pageReferenceString, int pageFrameCount){
         if(pageFrameCount < 0){
             throw new IllegalArgumentException();
         }
         this.pageFrameCount = pageFrameCount;
-        pageFaultCount = 0;
+        this.pageFaultCount = 0;
+        this.pageReferenceString = pageReferenceString;
+        this.frame = new ArrayList<>(pageFrameCount);
     }    
 
     /**
@@ -38,11 +48,11 @@ public abstract class ReplacementAlgorithm{
     }
 
     /**
-     * Abstract method definition for inserting a page number into the frame
+     *  This is the driver function to run the algorithm to find the page faults created.
      * 
-     * @param pageNumber - the page number to be inserted.
+     * @return the number of page faults
      */
-    public abstract void insert(int pageNumber);
+    public abstract int run();
 
 
 }
