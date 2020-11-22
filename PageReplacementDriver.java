@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class PageReplacementDriver {
 
     public static void main(String[] args) {
@@ -26,7 +28,7 @@ public class PageReplacementDriver {
             }
         }
         
-        int[] pageReferenceString = PageGenerator.getPageReferenceString(referenceStringLength);
+        ArrayList<Integer> pageReferenceString = PageGenerator.getPageReferenceString(referenceStringLength);
 
         print("\nPage Reference String: \n");
         for(int pageNumber : pageReferenceString ){
@@ -36,33 +38,35 @@ public class PageReplacementDriver {
 
         // Run the tests
 
-        ReplacementAlgorithm pargeReplacementAlgorithm;
+        ReplacementAlgorithm pageReplacementAlgorithm;
 
-        String fifoPageAlgoString = "FIFO Page Replacement w/ Frame Size %s.";
+        String fifoPageAlgoString = "FIFO Page Replacement w/ Frame Size: ";
         String fifoPageFaultsString = "";
 
-        String optimalPageAlgoString = "Optimal Page Replacement w/ Frame Size %s.";
+        String optimalPageAlgoString = "Optimal Page Replacement w/ Frame Size: ";
         String optimalPageFaultsString = "";
 
         String faultCountString = "Fault Count: %s";
+
+        int faultCount = -1;
 
         for(int pageFrameSize : pageFrameSizesForTesting ){
 
             print("Running FIFO and Optimal with a frame size of " + pageFrameSize + ".");
 
-            pargeReplacementAlgorithm = new FIFO(pageReferenceString, pageFrameSize);
-            int fifoFaults = pargeReplacementAlgorithm.run();
+            pageReplacementAlgorithm = new FIFO(pageReferenceString, pageFrameSize);
+            faultCount = pageReplacementAlgorithm.run();
 
-            print(fifoPageAlgoString);
-            fifoPageFaultsString = String.format(faultCountString, fifoFaults);
+            print(fifoPageAlgoString + pageFrameSize);
+            fifoPageFaultsString = String.format(faultCountString, faultCount);
             print(fifoPageFaultsString);
             print("\n");
 
-            pargeReplacementAlgorithm = new Optimal(pageReferenceString, pageFrameSize);
-            int optimalFaults = pargeReplacementAlgorithm.run();
+            pageReplacementAlgorithm = new Optimal(pageReferenceString, pageFrameSize);
+            faultCount = pageReplacementAlgorithm.run();
 
-            print(optimalPageAlgoString);
-            optimalPageFaultsString = String.format(faultCountString, optimalFaults);
+            print(optimalPageAlgoString + pageFrameSize);
+            optimalPageFaultsString = String.format(faultCountString, faultCount);
             print(optimalPageFaultsString);
             print("\n");
 

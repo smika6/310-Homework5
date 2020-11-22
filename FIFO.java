@@ -39,7 +39,6 @@ public class FIFO extends ReplacementAlgorithm {
             }
 
         }
-
         return getPageFaultCount();
     }
 
@@ -47,30 +46,34 @@ public class FIFO extends ReplacementAlgorithm {
 
 /*
 
-    int referenceStringSize = this.pageReferenceString.length;
-    int index = 0;
-    int referenceIndex = 0;
-    while(index < referenceStringSize){
-        if(Frame.length < pageFrameCount){
-            Frame[index] = this.pageReferenceString[referenceIndex];
-            faultCount++;
-            referenceIndex++;
-            break;
+    public void run(int pageNumber) {
+        int referenceStringSize = referenceString.length;
+        int pageReferenceindex = 0;
+        int positionInReferenceString = 0;
+        int referenceStringIndex = 0;
+        while(positionInReferenceString < referenceStringSize){
+            if(Frame.length < pageFrameCount){
+                Frame[index] = referenceString[referenceStringIndex];
+                faultCount++;
+                referenceStrtingIndex++;
+                break;
+            }
+            boolean insertFlag = searchForPage(pageNumber); 
+            if(!insertFlag){
+                int indexToReplaceAt = index % pageFrameCount + 1; 
+                Frame[indexToReplaceAt] = referenceString[referenceStringIndex];
+                faultCount++;
+                referenceStringIndex++;
+                break;
+            }
+            else{
+                index--;
+                referenceStringIndex++;
+                break;
+            }
+            index++;
+            positionInReferenceString++;
         }
-        boolean insertFlag = searchForPage(pageNumber); 
-        if(!insertFlag){
-            int indexToReplaceAt = index % pageFrameCount + 1; 
-            Frame[indexToReplaceAt] = referenceString[referenceIndex];
-            faultCount++;
-            referenceIndex++;
-            break;    
-        }
-        else{
-            index--;
-            referenceIndex++;
-            break;
-        }   
-        index++;
     }
 
 */

@@ -7,11 +7,6 @@ public class Optimal extends ReplacementAlgorithm {
         
         frame = new ArrayList<>(pageFrameCount);
     }
-    
-    @Override
-    public void insert(int pageNumber) {
-    
-    }
 
     @Override
     public int run() {

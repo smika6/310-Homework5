@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -26,12 +27,12 @@ public class PageGenerator {
      * @param referenceStringLength - the length of the page reference string to be returned.
      * @return int[] - An array of integers that represents the page reference string.
      */
-    public static int[] getPageReferenceString(int referenceStringLength) {
+    public static ArrayList<Integer> getPageReferenceString(int referenceStringLength) {
 
-        int[] referenceString = new int[referenceStringLength];
+        ArrayList<Integer> referenceString = new ArrayList<>(referenceStringLength);
 
         for (int i = 0; i < referenceStringLength; i++) {
-            referenceString[i] = getRandomNumber();
+            referenceString.add(getRandomNumber());
         }
 
         return referenceString;
