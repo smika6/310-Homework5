@@ -15,26 +15,29 @@ public class FIFO extends ReplacementAlgorithm {
     @Override
     public int run() {  
 
+        int indexOfLastReplaced = 0;
+
         for(int pageNumber : this.pageReferenceString){
-            int indexOfLastReplaced = 0;
 
-            if(!this.frame.contains(pageNumber)){
-                this.pageFaultCount++;
+            if(this.frame.contains(pageNumber)){
+                continue;
+            }
 
-                if(this.frame.size() == this.pageFrameCount){ 
+            this.pageFaultCount++;
 
-                    this.frame.add(indexOfLastReplaced, pageNumber);
-                    indexOfLastReplaced++;
+            if(this.frame.size() == this.pageFrameCount){ 
 
-                    if(indexOfLastReplaced == this.pageFrameCount){
-                        indexOfLastReplaced = 0;
-                    }
+                this.frame.add(indexOfLastReplaced, pageNumber);
+                indexOfLastReplaced++;
 
-                }else{ 
-                    this.frame.add(pageNumber);
+                if(indexOfLastReplaced == this.pageFrameCount){
+                    indexOfLastReplaced = 0;
                 }
 
+            }else{ 
+                this.frame.add(pageNumber);
             }
+
         }
 
         return getPageFaultCount();
