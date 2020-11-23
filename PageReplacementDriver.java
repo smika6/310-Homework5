@@ -30,20 +30,6 @@ public class PageReplacementDriver {
         
         ArrayList<Integer> pageReferenceString = PageGenerator.getPageReferenceString(referenceStringLength);
 
-        //Practice
-
-        print("Test Case FIFO");
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(1);
-        arr.add(3);
-        arr.add(0);
-        arr.add(3);
-        arr.add(5);
-        arr.add(6);
-        FIFO f = new FIFO(arr,3);
-        print("\n");
-        print("Faults: " + f.computeFaults());
-
         // Run the tests
 
         ReplacementAlgorithm pageReplacementAlgorithm;
@@ -110,4 +96,19 @@ public void insert(int pageNumber) {
             positionInReferenceString++;
         }
 }
+
+        //Practice
+
+        print("Test Case for FIFO, should be 5...");
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(1);
+        arr.add(3);
+        arr.add(0);
+        arr.add(3);
+        arr.add(5);
+        arr.add(6);
+        FIFO f = new FIFO(arr,3);
+        print("\n");
+        print("Faults: " + f.computeFaults());
+        print("\n\n");
 */

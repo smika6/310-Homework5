@@ -18,6 +18,7 @@ public class FIFO extends ReplacementAlgorithm {
 
         for (int pageNumber : this.pageReferenceString) {
 
+            // do nothing if the frame contians the page number
             if (this.frame.contains(pageNumber)) {
                 continue;
             }
@@ -26,10 +27,10 @@ public class FIFO extends ReplacementAlgorithm {
 
             if (this.frame.size() < this.pageFrameCount) {
                 this.frame.add(pageNumber);
-
+                
             } else {
-
                 this.frame.set(indexOfLastReplaced, pageNumber);
+
                 indexOfLastReplaced++;
 
                 if (indexOfLastReplaced == this.pageFrameCount) {
@@ -43,18 +44,3 @@ public class FIFO extends ReplacementAlgorithm {
     }
 
 }
-
-/*
- * TO BE WORKED ON. KWINTON public void run() { int referenceStringSize =
- * referenceString.length; int pageReferenceindex = 0; int
- * positionInReferenceString = 0; int referenceStringIndex = 0;
- * while(positionInReferenceString < referenceStringSize){ if(Frame.length <
- * pageFrameCount){ Frame[index] = referenceString[referenceStringIndex];
- * faultCount++; referenceStrtingIndex++; break; } boolean insertFlag =
- * searchForPage(pageNumber); if(!insertFlag){ int indexToReplaceAt = index %
- * pageFrameCount + 1; Frame[indexToReplaceAt] =
- * referenceString[referenceStringIndex]; faultCount++; referenceStringIndex++;
- * break; } else{ index--; referenceStringIndex++; break; } index++;
- * positionInReferenceString++; } }
- * 
- */
