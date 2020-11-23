@@ -1,5 +1,9 @@
 import java.util.ArrayList;
-
+/**
+ * FIFO page replacement Algorithm
+ * 
+ * https://www.geeksforgeeks.org/program-page-replacement-algorithms-set-2-fifo/
+ */
 public class FIFO extends ReplacementAlgorithm {
 
     protected FIFO(ArrayList<Integer> pageReferenceString, int pageFrameCount) {
@@ -27,7 +31,7 @@ public class FIFO extends ReplacementAlgorithm {
 
             if (this.frame.size() < this.pageFrameCount) {
                 this.frame.add(pageNumber);
-                
+
             } else {
                 this.frame.set(indexOfLastReplaced, pageNumber);
 
