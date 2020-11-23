@@ -4,7 +4,6 @@ import java.util.concurrent.ThreadLocalRandom;
 /**
  * This static class provides a function for creating a page reference string of a specified length for page replacement algorithms.
  * 
- * @author Kwinton Dropps
  * @author Jacob Hopkins
  * 
  * @version 1.0

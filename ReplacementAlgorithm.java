@@ -3,7 +3,6 @@ import java.util.ArrayList;
 /**
  * Abstract
  * 
- * @author Kwinton Dropps
  * @author Jacob Hopkins
  * 
  * @version 1.0
