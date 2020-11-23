@@ -32,26 +32,6 @@ public class PageReplacementDriver {
 
         // Run the tests
 
-        print("Test Case for Optimal, should be 6...");
-        ArrayList<Integer> arr = new ArrayList<>();
-        arr.add(7);
-        arr.add(0);
-        arr.add(1);
-        arr.add(2);
-        arr.add(0);
-        arr.add(3);
-        arr.add(0);
-        arr.add(4);
-        arr.add(2);
-        arr.add(3);
-        arr.add(0);
-        arr.add(3);
-        arr.add(2);
-        Optimal f = new Optimal(arr,4);
-        print("\n");
-        print("Faults: " + f.computeFaults());
-        print("\n\n");
-
         ReplacementAlgorithm pageReplacementAlgorithm;
 
         String fifoPageAlgoString = "Fault Count w/ FIFO Page Replacement: ";
@@ -106,7 +86,7 @@ public class PageReplacementDriver {
         print("Faults: " + f.computeFaults());
         print("\n\n");
 
-        print("Test Case for Optimal, should be 9...");
+        print("Test Case for Optimal, should be 6...");
         ArrayList<Integer> arr = new ArrayList<>();
         arr.add(7);
         arr.add(0);
@@ -121,18 +101,9 @@ public class PageReplacementDriver {
         arr.add(0);
         arr.add(3);
         arr.add(2);
-        arr.add(1);
-        arr.add(2);
-        arr.add(0);
-        arr.add(1);
-        arr.add(7);
-        arr.add(0);
-        arr.add(1);
-        FIFO f = new FIFO(arr,3);
+        Optimal f = new Optimal(arr,4);
         print("\n");
         print("Faults: " + f.computeFaults());
         print("\n\n");
-
-
 
 */
