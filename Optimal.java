@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 /**
+ * Optimal Page Replacement Algorithm
  * 
  * https://www.geeksforgeeks.org/optimal-page-replacement-algorithm/
  */
@@ -11,25 +12,26 @@ public class Optimal extends ReplacementAlgorithm {
         frame = new ArrayList<>(pageFrameCount);
     }
 
-    private int findIndexOfFarthestReference(int currentPageNumberIndex){
+    private int findIndexOfFarthestReference(int indexInReferenceString){
         int indexOfFathestReferenceInFrame = -1;
-        int fathestDistanceFromReference = -1;
+        int fathestDistanceFromReference = indexInReferenceString;
 
         // for every page number in the frame
-        for(int pageNumberIndexInFrame = 0; pageNumberIndexInFrame < this.frame.size(); pageNumberIndexInFrame++){
+        for(int indexInFrame = 0; indexInFrame < this.frame.size(); indexInFrame++){
 
+            int i;
             // for every page number in the reference string, from where we currently are to the end
-            for(int i = currentPageNumberIndex; i < this.pageReferenceString.size(); i++){
+            for(i = indexInReferenceString; i < this.pageReferenceString.size(); i++){
 
                 // if the page number in the frame is one of the values in the remaining reference string
-                if( this.frame.get(pageNumberIndexInFrame).equals( this.pageReferenceString.get(i) ) ){
+                if( this.frame.get(indexInFrame).equals( this.pageReferenceString.get(i) ) ){
 
                     // if thet distance of that reference is greater than any other distance of page numbers in the frame
                     if(i > fathestDistanceFromReference){
 
                         //assign the index found and report the distance for further comparison
                         fathestDistanceFromReference = i;
-                        indexOfFathestReferenceInFrame = pageNumberIndexInFrame;
+                        indexOfFathestReferenceInFrame = indexInFrame;
 
                     }
 
@@ -41,8 +43,8 @@ public class Optimal extends ReplacementAlgorithm {
 
             // if the distance is never updated than that page number is not in the remaining reference string
             // therefore it is never needed again and can be replaced
-            if(fathestDistanceFromReference == -1){
-                return pageNumberIndexInFrame;
+            if(i == this.pageReferenceString.size()){
+                return indexInFrame;
             }
         }
 

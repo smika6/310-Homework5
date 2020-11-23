@@ -32,6 +32,26 @@ public class PageReplacementDriver {
 
         // Run the tests
 
+        print("Test Case for Optimal, should be 6...");
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(7);
+        arr.add(0);
+        arr.add(1);
+        arr.add(2);
+        arr.add(0);
+        arr.add(3);
+        arr.add(0);
+        arr.add(4);
+        arr.add(2);
+        arr.add(3);
+        arr.add(0);
+        arr.add(3);
+        arr.add(2);
+        Optimal f = new Optimal(arr,4);
+        print("\n");
+        print("Faults: " + f.computeFaults());
+        print("\n\n");
+
         ReplacementAlgorithm pageReplacementAlgorithm;
 
         String fifoPageAlgoString = "Fault Count w/ FIFO Page Replacement: ";
@@ -70,30 +90,6 @@ public class PageReplacementDriver {
 }
 
 /*
-public void insert(int pageNumber) {
-        int referenceStringSize = referenceString.length;
-        int pageReferenceindex = 0;
-        int positionInReferenceString = 0;
-        int referenceStringIndex = 0;
-        int index = 0;
-        while(positionInReferenceString < referenceStringSize){
-            boolean insertFlag = searchForPage(pageNumber); 
-            if(!insertFlag || Frame.length < pageFrameCount ){
-                int indexToReplaceAt = index % pageFrameCount + 1; 
-                Frame[indexToReplaceAt] = referenceString[referenceStringIndex];
-                faultCount++;
-                referenceStringIndex++;
-                break;
-            }
-            else{
-                index--;
-                referenceStringIndex++;
-                break;
-            }
-            index++;
-            positionInReferenceString++;
-        }
-}
 
         //Practice
 
@@ -109,4 +105,34 @@ public void insert(int pageNumber) {
         print("\n");
         print("Faults: " + f.computeFaults());
         print("\n\n");
+
+        print("Test Case for Optimal, should be 9...");
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(7);
+        arr.add(0);
+        arr.add(1);
+        arr.add(2);
+        arr.add(0);
+        arr.add(3);
+        arr.add(0);
+        arr.add(4);
+        arr.add(2);
+        arr.add(3);
+        arr.add(0);
+        arr.add(3);
+        arr.add(2);
+        arr.add(1);
+        arr.add(2);
+        arr.add(0);
+        arr.add(1);
+        arr.add(7);
+        arr.add(0);
+        arr.add(1);
+        FIFO f = new FIFO(arr,3);
+        print("\n");
+        print("Faults: " + f.computeFaults());
+        print("\n\n");
+
+
+
 */
